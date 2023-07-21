@@ -1,30 +1,13 @@
-// Train.js - Model
-const mongoose = require('mongoose');
+class Train {
+  constructor(data) {
+    this.trainNumber = data.trainNumber;
+    this.departureTime = data.departureTime;
+    this.delay = data.delay;
+    this.sleeperAvailability = data.sleeperAvailability;
+    this.acAvailability = data.acAvailability;
+    this.sleeperPrice = data.sleeperPrice;
+    this.acPrice = data.acPrice;
+  }
+}
 
-const trainSchema = new mongoose.Schema({
-  trainNumber: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  departureTime: {
-    type: String,
-    required: true,
-  },
-  delay: {
-    type: Number,
-    default: 0,
-  },
-  tickets: {
-    type: Number,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-});
-
-module.exports = mongoose.model('Train', trainSchema);
-
-
+module.exports = Train;
